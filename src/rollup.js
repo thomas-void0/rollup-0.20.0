@@ -1,4 +1,4 @@
-// main
+// main start
 
 import Bundle from './Bundle';
 import SOURCEMAPPING_URL from './utils/sourceMappingURL';
