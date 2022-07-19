@@ -1,7 +1,8 @@
-export default function transform ( source, id, transformers ) {
+// 进行转换
+export default function transform(source, id, transformers) {
 	let sourceMapChain = [];
 
-	if ( typeof source === 'string' ) {
+	if (typeof source === 'string') {
 		source = {
 			code: source,
 			ast: null
@@ -11,12 +12,12 @@ export default function transform ( source, id, transformers ) {
 	let originalCode = source.code;
 	let ast = source.ast;
 
-	let code = transformers.reduce( ( previous, transformer ) => {
-		let result = transformer( previous, id );
+	let code = transformers.reduce((previous, transformer) => {
+		let result = transformer(previous, id);
 
-		if ( result == null ) return previous;
+		if (result == null) return previous;
 
-		if ( typeof result === 'string' ) {
+		if (typeof result === 'string') {
 			result = {
 				code: result,
 				ast: null,
@@ -24,11 +25,11 @@ export default function transform ( source, id, transformers ) {
 			};
 		}
 
-		sourceMapChain.push( result.map );
+		sourceMapChain.push(result.map);
 		ast = result.ast;
 
 		return result.code;
-	}, source.code );
+	}, source.code);
 
 	return { code, originalCode, ast, sourceMapChain };
 }

@@ -9,6 +9,7 @@ import { writeFile } from './utils/fs';
 export const VERSION = '<@VERSION@>';
 
 export function rollup(options) {
+	// options: 配置
 	if (!options || !options.entry) {
 		throw new Error('You must supply options.entry to rollup');
 	}
