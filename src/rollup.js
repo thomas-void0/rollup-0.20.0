@@ -20,6 +20,8 @@ export function rollup(options) {
 
 	const bundle = new Bundle(options);
 
+	console.log("bundle：", bundle)
+
 	return bundle.build().then(() => {
 		return {
 			imports: bundle.externalModules.map(module => module.id),

@@ -70,5 +70,6 @@
     "dist",
     "bin",
     "README.md"
-  ]
+  ],
+  "type": "module"
 }
